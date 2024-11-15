@@ -1,0 +1,99 @@
+<style>
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px; /* Set maximum width */
+    margin: 0 auto; /* Center the container */
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.selector-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px; /* Match container width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selector-button {
+    background-color: #e5e5e5;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    transition: all 0.2s ease;
+}
+
+.selector-button:hover {
+    background-color: #d4d4d4;
+}
+
+.selector-button.active {
+    background-color: #4b5563;
+    color: white;
+}
+
+.embed-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.embed-pane.active {
+    opacity: 1;
+    pointer-events: all;
+}
+</style>
+
+<div class="selector-buttons">
+    <button class="selector-button active" onclick="showPane(0)">Pane 1</button>
+    <button class="selector-button" onclick="showPane(1)">Pane 2</button>
+    <button class="selector-button" onclick="showPane(2)">Pane 3</button>
+</div>
+
+<div class="embed-container">
+    <div class="embed-pane active">
+        <div class="flourish-embed flourish-map" data-src="visualisation/20322535"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20322535/thumbnail" width="100%" alt="map visualization" /></noscript></div>
+    </div>
+    <div class="embed-pane">
+        <div class="flourish-embed flourish-map" data-src="visualisation/20321499"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20321499/thumbnail" width="100%" alt="map visualization" /></noscript></div>
+    </div>
+    <div class="embed-pane">
+        <div class="flourish-embed flourish-map" data-src="visualisation/20322564"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20322564/thumbnail" width="100%" alt="map visualization" /></noscript></div>
+    </div>
+</div>
+
+<script>
+function showPane(paneIndex) {
+    // Update buttons
+    const buttons = document.getElementsByClassName('selector-button');
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+    }
+    buttons[paneIndex].classList.add('active');
+    
+    // Update panes
+    const panes = document.getElementsByClassName('embed-pane');
+    for (let i = 0; i < panes.length; i++) {
+        panes[i].classList.remove('active');
+    }
+    panes[paneIndex].classList.add('active');
+}
+</script>
