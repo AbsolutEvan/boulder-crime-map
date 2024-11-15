@@ -10,7 +10,7 @@
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            max-width: 800px; /* Set maximum width */
+            max-width: 100%; /* Set maximum width to 100% to avoid cropping */
             margin: 0 auto; /* Center the container */
         }
 
@@ -70,9 +70,10 @@
 </head>
 <body>
     <div class="selector-buttons">
-        <button class="selector-button active" onclick="showPane(0)">Drunk Person</button>
-        <button class="selector-button" onclick="showPane(1)">Harrasment</button>
-        <button class="selector-button" onclick="showPane(2)">Trespassing</button>
+        <button class="selector-button active" onclick="showPane(0)">Pane 1</button>
+        <button class="selector-button" onclick="showPane(1)">Pane 2</button>
+        <button class="selector-button" onclick="showPane(2)">Pane 3</button>
+        <button class="selector-button" onclick="showPane(3)">Boulder Crime Map</button>
     </div>
 
     <div class="embed-container">
@@ -93,6 +94,9 @@
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
                 <noscript><img src="https://public.flourish.studio/visualisation/20322564/thumbnail" width="100%" alt="map visualization" /></noscript>
             </div>
+        </div>
+        <div class="embed-pane">
+            <iframe src="https://absolutevan.github.io/boulder-crime-map/index.html" frameborder="0" width="100%" height="100%" style="min-height: 500px;"></iframe>
         </div>
     </div>
 
